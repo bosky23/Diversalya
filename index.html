@@ -1,190 +1,371 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Diversalya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
+
 <body>
-<style>
-.region {
-    display: none;
-}
-.entreprise {
-    display: none;
-}
-body {
-    text-align: center;
-    
-}
-</style>
+    <style>
+        .region,
+        .entreprise,
+        .pays {
+            display: none;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
 
-<header>
-    <h1>Diversalya</h1>
-</header>
+        /* Initial state for pays */
+        .pays.visible {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-<div class="pays" id="pays">
-    <h2>Diversalya</h2>
-    <h4>Chefs : Rednix, deli, Bosky, Ygaris</h4>
-    <div class="resumer">
-    🌟 Diversalya — Unis par la force, guidés par la confiance.<br>
-Né de la fusion des anciens pays d’Hydrolis, d’Étoile et d’Infernia, Diversalya est aujourd’hui une nation à part, fondée sur la solidarité, la liberté et l’unité.<br>
+        .visible {
+            display: block !important;
+            animation: fadeInSlideUp 0.5s ease forwards;
+        }
 
-Dirigée par une oligarchie de quatre membres soudés, le pouvoir y est partagé, équilibré et à l’écoute de tous. Ici, chaque joueur compte. Qu’on soit chef ou simple citoyen, tout le monde a voix au chapitre et peut évoluer librement. Rires, projets communs, entraide constante : c’est cette ambiance qui fait de Diversalya une nation vivante et unique.
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
 
-Paix, prospérité et alliances solides font la renommée du pays : nous sommes amis avec plusieurs nations, sans jamais perdre notre identité. Notre richesse ne réside pas que dans les coffres, mais aussi dans la confiance inébranlable entre nos membres.
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-🔷 Rejoignez Diversalya et… bâtissons l’avenir ensemble.<br>
-『 https://discord.gg/8NG8fzDUws 』
-</div>
-</div>
+        body {
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Lexend', sans-serif;
+            background-color: rgb(240, 240, 255);
+        }
 
-<h3>liste des regions du pays :</h3>
-<select id="regionSelect">
-    <option value="">-- Choisir une région --</option>
-    <option value="Etoile">Étoile</option>
-    <option value="Infernia">Infernia</option>
-    <option value="Hydrolis">Hydrolis</option>
-    <option value="Orun">Ørun</option>
-    <option value="Velmeria">Velmeria</option>
-</select>
+        header {
+            background-color: white;
+            padding: 10px;
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
 
-    
-<div class="region" id="Etoile">
-    <h2>Région Étoile</h2>
-    <p>Chef : Rednix</p>
-    <p>carte de la region : <br> <img> </p>
-</div>
+        .logo {
+            width: 200px;
+            border-radius: 10px;
+        }
 
-<div class="region" id="Infernia">
-    <h2>Région Infernia</h2>
-    <p>chef : Deli/barberouge</p>
-    <p>carte de la region : <br> <img> </p>
-</div>
+        .joinbtn {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(0, 28, 189);
+            color: white;
+            text-decoration: none;
+            transition: 0.3s
+        }
 
-<div class="region" id="Hydrolis">
-    <h2>Région Hydrolis</h2>
-    <p>chef : Bosky</p>
-    <p>carte de la region : <br> <img> </p>
-</div>
-<div class="region" id="Orun">
-    <h2>Région ørun</h2>
-    <p>chef : Ygaris</p>
-    <p>carte de la region : <br> <img> </p>
-</div>
-<div class="region" id="Velmeria">
-    <h2>Région Vélmeria</h2>
-    <p>chef : Lyoh</p>
-    <p>carte de la region : <br> <img> </p>
-</div>
+        .joinbtn:hover {
+            background-color: rgb(41, 73, 255);
+            transition: 0.3s
+        }
 
-
-<div class="toutentreprise">
-    <h3>liste des entreprises du pays :</h3>
-<select id="entrepriseselect">
-    <option value="">-- Choisir une entreprise --</option>
-    <option value="lames">guild des lames d'émeraude</option>
-    <option value="6prets">6prêts</option>
-    <option value="cube parfait">le cube parfait</option>
-    <option value="agence de build">agence de build</option>
-</select>
-<div class="entreprise" id="lames">
-    <h3>Guild les lames d'Emeraude</h3>
-    <h4>membres createur : Bosky</h4>
-    <h2>🌟 Bienvenue chez Les Lames d'Émeraude ! 🌟<br>
-
-Dans notre guilde, l'aventure est au cœur de tout ce que nous faisons. ⚔️ Que ce soit pour accomplir des quêtes palpitantes, partir en raid dans des donjons mystérieux ou perfectionner vos compétences dans notre zone d'entraînement, il y a toujours un défi à relever. 🏹✨<br>
-
-Nous offrons à nos membres la possibilité de gagner de l'argent 🪙 en accomplissant des missions, tout en progressant dans notre classement prestigieux. Chaque pas que vous faites vous rapproche de la gloire et du titre ultime au sein de la guilde. 🏆🔥<br>
-
-La guilde est plus qu'un simple groupe d'aventuriers : c'est une communauté soudée 🤝 où chacun trouve sa place, que vous soyez un novice cherchant à apprendre ou un vétéran assoiffé de combats épiques. Ensemble, nous explorons, combattons, et écrivons notre légende. 🌍📜<br>
-
-🎯 Rejoignez-nous et devenez une Lame d'Émeraude. Montrez votre bravoure et marquez votre nom dans le classement ! 💎✨<br>
-
-Vous êtes prêt(e) à commencer votre quête ? 😉 <br>
-
-Nous avons hâte de vous voir briller parmi nous ! 🚀</h2>
-    
-</div>
-
-<div class="entreprise" id="6prets">
-    <h3>6prêts</h3>
-    <h4>membres createur : Rednix</h4>
-</div>
-
-<div class="entreprise" id="cube parfait">
-    <h3>le Cube parfait</h3>
-    <h4>membres createur : Bosky et Ygaris</h4>
-    <p>Rejoignez le Cube Parfait<br>
-Le monde regorge de combattants… mais rares sont ceux qui osent frôler la perfection.<br>
-Le Cube Parfait n’est pas une simple religion. C’est un ordre d’élite où seuls les plus habiles, les plus audacieux et les plus déterminés trouvent leur place.
-Six styles de combat, six épreuves, six chemins vers la maîtrise absolue pour devenir des demi-dieux:<br><br>
-
-• Celle de l’épée, pour ceux qui manient la lame avec précision et discipline.<br>
-• Celle de la hache, pour ceux qui brisent boucliers et défenses avec puissance et précision.<br>
-• Celle de l’arc et de l'arbalète, pour ceux qui frappent avant que l’ennemi ne les voie.<br>
-• Celle de la masse, pour ceux qui écrasent tout sur leur passage avec force et rage.<br>
-• Celle de la lance et du trident, pour ceux qui contrôlent la distance et la rapidité.<br>
-• Celle du mage, pour ceux qui usent des potions et sortilèges divers.<br>
-
-Chaque chemin peut être défendu ou contesté. Prouve ta valeur, affronte les champions actuels, et peut-être que ton nom rejoindra les légendes du Cube.<br>
-🔹 Si tu crois pouvoir repousser tes limites,<br>
-🔹 si tu rêves de te mesurer aux plus grands guerriers du monde,<br>
-Alors franchis le pas. Le Cube Parfait t’attend.<br>
-<br>
-<br>
-<br>
-Personne intéressé :<br>
-• Celle de l’épée : Lyoh<br>
-• Celle de l’arc et arbalète :<br>
-• Celle de la masse : Ygaris<br>
-• Celle de la lance et du trident : Volontaire et Bosky <br>
-• Celle des mages : Volontaire <br>
-• Celle de la hache : <br>
-
-N'hésitez pas à me dire lesquelles vous intéresse ! <br>
-Si plusieurs personnes sont intéressé par la même face alors il devront s'affronter avec l'arme de cette face ! <br>
-</p>
-</div>
-<div class="entreprise" id="agence de build">
-    <h3>agence de build</h3>
-    <h4>membres createur : Lyoh et ayeko</h4>
-</div>
+        .naviguation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
 
 
+        .listepays,
+        .listeentreprises {
+            cursor: pointer;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid rgb(200, 200, 255);
+            border-radius: 10px;
+            font-family: 'Lexend', sans-serif;
+            font-size: 14px;
+            transition: 0.3s;
+            outline: none;
+        }
 
-</div>
+        .listepays:hover,
+        .listeentreprises:hover {
+            border-color: rgb(0, 28, 189);
+        }
 
- <script>
-const select = document.getElementById("regionSelect");
-const regions = document.querySelectorAll(".region");
 
-select.addEventListener("change", () => {
-    regions.forEach(region => {
-        region.style.display = "none";
-    });
+        @media (max-width: 600px) {
+            .naviguation {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
 
-    const selected = document.getElementById(select.value);
-    if (selected) {
-        selected.style.display = "block";
-    }
-});
+            .listepays,
+            .listeentreprises {
+                width: 100%;
+                max-width: 300px;
+            }
 
-const select2 = document.getElementById("entrepriseselect");
-const regions2 = document.querySelectorAll(".entreprise");
+            .logo {
+                width: 150px;
+            }
 
-select2.addEventListener("change", () => {
-    regions2.forEach(entreprise => {
-        entreprise.style.display = "none";
-    });
+            h1 {
+                font-size: 24px;
+            }
+        }
 
-    const selected = document.getElementById(select2.value);
-    if (selected) {
-        selected.style.display = "block";
-    }
-});
-</script>
+        .content-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: left;
+        }
+    </style>
+
+    <header>
+        <img src="logo.png" alt="Drapeau du pays" class="logo" id="logoReset" style="cursor: pointer;">
+        <h1>Diversalya</h1>
+        <div class="naviguation">
+            <select class="listepays" id="regionSelect">
+                <option value="">🌍 Choisir une région</option>
+                <option value="Etoile">Étoile</option>
+                <option value="Infernia">Infernia</option>
+                <option value="Hydrolis">Hydrolis</option>
+                <option value="Orun">Ørun</option>
+                <option value="Velmeria">Velmeria</option>
+            </select>
+            <select class="listeentreprises" id="entrepriseselect">
+                <option value="">🏗 Choisir une entreprise</option>
+                <option value="lames">Guilde des Lames d'Émeraude</option>
+                <option value="6prets">6prêts</option>
+                <option value="cube parfait">Le Cube Parfait</option>
+                <option value="agence de build">Agence de Build</option>
+            </select>
+        </div>
+    </header>
+
+    <main class="content-container">
+
+        <div class="pays visible" id="pays">
+            <h4 class="chefs">Chefs : Rednix, deli, Bosky,
+                Ygaris</h4>
+            <div class="resumer">
+                🌟 Diversalya — Unis par la force, guidés par la confiance.<br>
+                Né de la fusion des anciens pays d’Hydrolis, d’Étoile et d’Infernia, Diversalya est aujourd’hui une
+                nation à
+                part, fondée sur la solidarité, la liberté et l’unité.<br><br>
+
+                Dirigée par une oligarchie de quatre membres soudés, le pouvoir y est partagé, équilibré et à l’écoute
+                de
+                tous. Ici, chaque joueur compte. Qu’on soit chef ou simple citoyen, tout le monde a voix au chapitre et
+                peut
+                évoluer librement. Rires, projets communs, entraide constante : c’est cette ambiance qui fait de
+                Diversalya
+                une nation vivante et unique.<br><br>
+
+                Paix, prospérité et alliances solides font la renommée du pays : nous sommes amis avec plusieurs
+                nations,
+                sans jamais perdre notre identité. Notre richesse ne réside pas que dans les coffres, mais aussi dans la
+                confiance inébranlable entre nos membres.<br><br>
+
+                🔷 Rejoignez Diversalya et… bâtissons l’avenir ensemble.<br><br>
+                <a class="joinbtn" href="https://discord.gg/8NG8fzDUws">Rejoindre notre Discord</a>
+            </div>
+        </div>
+
+
+
+        <div class="region" id="Etoile">
+            <h2>Région Étoile</h2>
+            <p>Chef : Rednix</p>
+            <p>carte de la region : <br> <img> </p>
+        </div>
+
+        <div class="region" id="Infernia">
+            <h2>Région Infernia</h2>
+            <p>chef : Deli/barberouge</p>
+            <p>carte de la region : <br> <img> </p>
+        </div>
+
+        <div class="region" id="Hydrolis">
+            <h2>Région Hydrolis</h2>
+            <p>chef : Bosky</p>
+            <p>carte de la region : <br> <img> </p>
+        </div>
+        <div class="region" id="Orun">
+            <h2>Région ørun</h2>
+            <p>chef : Ygaris</p>
+            <p>carte de la region : <br> <img> </p>
+        </div>
+        <div class="region" id="Velmeria">
+            <h2>Région Vélmeria</h2>
+            <p>chef : Lyoh</p>
+            <p>carte de la region : <br> <img> </p>
+        </div>
+
+
+        <div class="toutentreprise">
+            <div class="entreprise" id="lames">
+                <h3>Guild les lames d'Emeraude</h3>
+                <h4>membres createur : Bosky</h4>
+                <p>🌟 Bienvenue chez Les Lames d'Émeraude ! 🌟<br>
+
+                    Dans notre guilde, l'aventure est au cœur de tout ce que nous faisons. ⚔️ Que ce soit pour accomplir
+                    des
+                    quêtes palpitantes, partir en raid dans des donjons mystérieux ou perfectionner vos compétences dans
+                    notre zone d'entraînement, il y a toujours un défi à relever. 🏹✨<br>
+
+                    Nous offrons à nos membres la possibilité de gagner de l'argent 🪙 en accomplissant des missions,
+                    tout
+                    en progressant dans notre classement prestigieux. Chaque pas que vous faites vous rapproche de la
+                    gloire
+                    et du titre ultime au sein de la guilde. 🏆🔥<br>
+
+                    La guilde est plus qu'un simple groupe d'aventuriers : c'est une communauté soudée 🤝 où chacun
+                    trouve
+                    sa place, que vous soyez un novice cherchant à apprendre ou un vétéran assoiffé de combats épiques.
+                    Ensemble, nous explorons, combattons, et écrivons notre légende. 🌍📜<br>
+
+                    🎯 Rejoignez-nous et devenez une Lame d'Émeraude. Montrez votre bravoure et marquez votre nom dans
+                    le
+                    classement ! 💎✨<br>
+
+                    Vous êtes prêt(e) à commencer votre quête ? 😉 <br>
+
+                    Nous avons hâte de vous voir briller parmi nous ! 🚀
+                </p>
+
+            </div>
+
+            <div class="entreprise" id="6prets">
+                <h3>6prêts</h3>
+                <h4>membres createur : Rednix</h4>
+            </div>
+
+            <div class="entreprise" id="cube parfait">
+                <h3>le Cube parfait</h3>
+                <h4>membres createur : Bosky et Ygaris</h4>
+                <p>Rejoignez le Cube Parfait<br>
+                    Le monde regorge de combattants… mais rares sont ceux qui osent frôler la perfection.<br>
+                    Le Cube Parfait n’est pas une simple religion. C’est un ordre d’élite où seuls les plus habiles, les
+                    plus audacieux et les plus déterminés trouvent leur place.
+                    Six styles de combat, six épreuves, six chemins vers la maîtrise absolue pour devenir des
+                    demi-dieux:<br><br>
+
+                    • Celle de l’épée, pour ceux qui manient la lame avec précision et discipline.<br>
+                    • Celle de la hache, pour ceux qui brisent boucliers et défenses avec puissance et précision.<br>
+                    • Celle de l’arc et de l'arbalète, pour ceux qui frappent avant que l’ennemi ne les voie.<br>
+                    • Celle de la masse, pour ceux qui écrasent tout sur leur passage avec force et rage.<br>
+                    • Celle de la lance et du trident, pour ceux qui contrôlent la distance et la rapidité.<br>
+                    • Celle du mage, pour ceux qui usent des potions et sortilèges divers.<br>
+
+                    Chaque chemin peut être défendu ou contesté. Prouve ta valeur, affronte les champions actuels, et
+                    peut-être que ton nom rejoindra les légendes du Cube.<br>
+                    🔹 Si tu crois pouvoir repousser tes limites,<br>
+                    🔹 si tu rêves de te mesurer aux plus grands guerriers du monde,<br>
+                    Alors franchis le pas. Le Cube Parfait t’attend.<br>
+                    <br>
+                    <br>
+                    <br>
+                    Personne intéressé :<br>
+                    • Celle de l’épée : Lyoh<br>
+                    • Celle de l’arc et arbalète :<br>
+                    • Celle de la masse : Ygaris<br>
+                    • Celle de la lance et du trident : Volontaire et Bosky <br>
+                    • Celle des mages : Volontaire <br>
+                    • Celle de la hache : <br>
+
+                    N'hésitez pas à me dire lesquelles vous intéresse ! <br>
+                    Si plusieurs personnes sont intéressé par la même face alors il devront s'affronter avec l'arme de
+                    cette
+                    face ! <br>
+                </p>
+            </div>
+            <div class="entreprise" id="agence de build">
+                <h3>agence de build</h3>
+                <h4>membres createur : Lyoh et ayeko</h4>
+            </div>
+
+
+
+        </div>
+    </main>
+
+    <script>
+        const regionSelect = document.getElementById("regionSelect");
+        const entrepriseSelect = document.getElementById("entrepriseselect");
+        const logoReset = document.getElementById("logoReset");
+        const sections = document.querySelectorAll(".region, .entreprise, .pays");
+        const pays = document.getElementById("pays");
+
+        function hideAll() {
+            sections.forEach(section => {
+                section.classList.remove("visible");
+            });
+        }
+
+        function resetToNormal() {
+            hideAll();
+            regionSelect.value = "";
+            entrepriseSelect.value = "";
+            // Small timeout to allow the 'display: none' from hideAll to settle if needed, 
+            // but here we just need to ensure 'visible' is added.
+            setTimeout(() => {
+                pays.classList.add("visible");
+            }, 10);
+        }
+
+        function checkEmpty() {
+            if (regionSelect.value === "" && entrepriseSelect.value === "") {
+                pays.classList.add("visible");
+            }
+        }
+
+        logoReset.addEventListener("click", resetToNormal);
+
+        regionSelect.addEventListener("change", () => {
+            hideAll();
+            entrepriseSelect.value = "";
+            const selected = document.getElementById(regionSelect.value);
+            if (selected) {
+                setTimeout(() => {
+                    selected.classList.add("visible");
+                }, 10);
+            } else {
+                checkEmpty();
+            }
+        });
+
+        entrepriseSelect.addEventListener("change", () => {
+            hideAll();
+            regionSelect.value = "";
+            const selected = document.getElementById(entrepriseSelect.value);
+            if (selected) {
+                setTimeout(() => {
+                    selected.classList.add("visible");
+                }, 10);
+            } else {
+                checkEmpty();
+            }
+        });
+    </script>
 
 
 </body>
-</html>
 
+</html>
