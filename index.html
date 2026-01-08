@@ -229,7 +229,7 @@
     <input name="pseudo" placeholder="Pseudo Minecraft" required><br><br>
 
     <select name="niveau" required>
-        <option value="">Niveau de combat</option>
+        <option value="">Niveau de jeu</option>
         <option>Débutant</option>
         <option>Intermédiaire</option>
         <option>Avancé</option>
@@ -468,7 +468,7 @@ document.getElementById("recrutementForm").addEventListener("submit", function(e
         },
         body: JSON.stringify({
             content:
-                "**📜 Nouvelle candidature pour le pays ![test]**\n" +
+                "**📜 Nouvelle candidature pour le pays !**\n" +
                 "**Pseudo :** " + pseudo + "\n" +
                 "**Niveau :** " + niveau + "\n\n" +
                 "**Motivation :**\n" + motivation
@@ -489,6 +489,7 @@ document.getElementById("recrutementForm").addEventListener("submit", function(e
 
 
 </html>
+
 
 
 
