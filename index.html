@@ -226,8 +226,15 @@
 <div class="recrutementpays" id="RecrutementPays">
 
     <form id="recrutementForm">
-    <input name="pseudo" placeholder="Pseudo Minecraft" required><br><br>
-
+    <input name="pseudo" placeholder="Pseudo Minecraft" required><br>
+    <input name="pseudods" placeholder="Pseudo Discord" required><br><br>
+    <select name="style" required>
+        <option value="">style de jeu</option>
+        <option>builder</option>
+        <option>pvp</option>
+        <option>farmer</option>
+        <option>autres</option>
+    </select><br><br>
     <select name="niveau" required>
         <option value="">Niveau de jeu</option>
         <option>Débutant</option>
@@ -237,6 +244,7 @@
     </select><br><br>
 
     <textarea name="motivation" placeholder="Pourquoi veux-tu rejoindre le pays ?" required></textarea><br><br>
+    <textarea name="age" placeholder="quel age as tu  ?"></textarea><br><br>
 
     <button type="submit" class="joinbtn">Envoyer</button>
 </form>
@@ -456,11 +464,12 @@
 
 document.getElementById("recrutementForm").addEventListener("submit", function(e) {
     e.preventDefault();
-
+    const pseudods = this.pseudods.value;
     const pseudo = this.pseudo.value;
     const niveau = this.niveau.value;
     const motivation = this.motivation.value;
-
+    const style = this.style.value;
+    const age = this.age.value;
     fetch("https://discord.com/api/webhooks/1458899300951261329/JxCy4aabrpoZDiOaSnUIc_SoZHrS2__cwDiEIdKs_q_drUjctmvbwljtk9FNmVHssZ2d", {
         method: "POST",
         headers: {
@@ -469,8 +478,11 @@ document.getElementById("recrutementForm").addEventListener("submit", function(e
         body: JSON.stringify({
             content:
                 "**📜 Nouvelle candidature pour le pays !**\n" +
-                "**Pseudo :** " + pseudo + "\n" +
+                "**Pseudo minecraft :** " + pseudo + "\n" +
+                "**Pseudo discord :** " + pseudods + "\n" +
                 "**Niveau :** " + niveau + "\n\n" +
+                "**style :** " + style + "\n" +
+                "**Age :** " + age + "\n" +
                 "**Motivation :**\n" + motivation
         })
     }).then(() => {
@@ -489,6 +501,7 @@ document.getElementById("recrutementForm").addEventListener("submit", function(e
 
 
 </html>
+
 
 
 
