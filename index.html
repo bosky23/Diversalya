@@ -222,6 +222,25 @@
                 🔷 Rejoignez Diversalya et… bâtissons l’avenir ensemble.<br><br>
                 <a class="joinbtn" href="https://discord.gg/8NG8fzDUws">Rejoindre notre Discord</a>
             </div>
+            <h3>📝 Rejoindre les Lames d'Émeraude</h3>
+<div class="recrutement">
+<form id="recrutementForm">
+    <input type="text" placeholder="Pseudo Minecraft" required><br><br>
+
+    <select required>
+        <option value="">Niveau de combat</option>
+        <option>Débutant</option>
+        <option>Intermédiaire</option>
+        <option>Avancé</option>
+        <option>Vétéran</option>
+    </select><br><br>
+
+    <textarea placeholder="Pourquoi veux-tu rejoindre la guilde ?" required></textarea><br><br>
+
+    <button type="submit" class="joinbtn">Envoyer la candidature</button>
+</form>
+</div>
+
         </div>
 
 
@@ -432,6 +451,25 @@
         });
     });
 
+document.getElementById("recrutementForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const pseudo = this.querySelector("input").value;
+    const niveau = this.querySelector("select").value;
+    const motivation = this.querySelector("textarea").value;
+
+    const message =
+        "Candidature Lames d'Émeraude\n\n" +
+        "Pseudo : " + pseudo + "\n" +
+        "Niveau : " + niveau + "\n\n" +
+        "Motivation :\n" + motivation;
+
+    window.location.href =
+        "mailto:mottetbrian@gmail.com" +
+        "?subject=Candidature - Lames d'Émeraude" +
+        "&body=" + encodeURIComponent(message);
+});
+
 
     </script>
 
@@ -440,4 +478,5 @@
 
 
 </html>
+
 
