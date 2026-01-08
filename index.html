@@ -135,6 +135,42 @@
             padding: 20px;
             text-align: left;
         }
+        
+
+.quetes {
+    margin-top: 20px;
+}
+
+.quete {
+    background-color: white;
+    border: 1px solid rgb(200, 200, 255);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.quete-header {
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: rgb(245, 245, 255);
+    transition: background-color 0.3s;
+}
+
+.quete-header:hover {
+    background-color: rgb(230, 230, 255);
+}
+
+.quete-content {
+    display: none;
+    padding: 12px;
+    border-top: 1px solid rgb(220, 220, 255);
+}
+
+.quete.open .quete-content {
+    display: block;
+}
+
     </style>
 
     <header>
@@ -249,6 +285,31 @@
 
                     Nous avons hâte de vous voir briller parmi nous ! 🚀
                 </p>
+                <h3>📜 Quêtes de la guilde</h3>
+
+<div class="quetes">
+
+    <div class="quete">
+        <div class="quete-header">⚔️ Nettoyage de donjon</div>
+        <div class="quete-content">
+            <p><strong>Description :</strong> Éliminer les monstres d’un donjon proche.</p>
+            <p><strong>Objectif :</strong> Tuer 20 monstres.</p>
+            <p><strong>Récompenses :</strong> 150 d'argent + 100 point de guilde</p>
+        </div>
+    </div>
+
+    <div class="quete">
+        <div class="quete-header">🏹 Contrat de chasse</div>
+        <div class="quete-content">
+            <p><strong>Description :</strong> Traquer une créature rare.</p>
+            <p><strong>Objectif :</strong> Ramener la preuve de la chasse.</p>
+            <p><strong>Récompenses :</strong> 300 🪙 + objet rare</p>
+        </div>
+    </div>
+
+    p
+</div>
+
 
             </div>
 
@@ -363,9 +424,19 @@
                 checkEmpty();
             }
         });
+
+        
+    document.querySelectorAll(".quete-header").forEach(header => {
+        header.addEventListener("click", () => {
+            header.parentElement.classList.toggle("open");
+        });
+    });
+
+
     </script>
 
 
 </body>
+
 
 </html>
