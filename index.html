@@ -137,37 +137,37 @@
         }
         
 
-.quetes {
-    margin-top: 20px;
-}
+        .quetes {
+            margin-top: 20px;
+        }
 
-.quete {
+        .quete {
     background-color: white;
     border: 1px solid rgb(200, 200, 255);
     border-radius: 10px;
     margin-bottom: 10px;
     overflow: hidden;
-}
+        }
 
-.quete-header {
+        .quete-header {
     padding: 12px;
     cursor: pointer;
     font-weight: 600;
     background-color: rgb(245, 245, 255);
     transition: background-color 0.3s;
-}
-
-.quete-header:hover {
+        }
+   
+        .quete-header:hover {
     background-color: rgb(230, 230, 255);
 }
 
-.quete-content {
+        .quete-content {
     display: none;
     padding: 12px;
     border-top: 1px solid rgb(220, 220, 255);
 }
 
-.quete.open .quete-content {
+    .quete.open .quete-content {
     display: block;
 }
 
@@ -426,7 +426,7 @@
         });
 
         
-    document.querySelectorAll(".quete-header").forEach(header => {
+        document.querySelectorAll(".quete-header").forEach(header => {
         header.addEventListener("click", () => {
             header.parentElement.classList.toggle("open");
         });
@@ -440,3 +440,4 @@
 
 
 </html>
+
