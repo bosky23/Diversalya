@@ -179,6 +179,15 @@
     border-radius: 10px;
     margin-bottom: 10px;
     width: fit-content;
+    background-image: url("stone.png");
+    
+    background-repeat: repeat;               /* répète l’image horizontalement et verticalement */
+    background-size: 50px 50px;              /* taille de chaque “tuile” de l’image */
+    background-position: center;           /* facultatif, position de départ */
+    
+
+
+    color: white;
         }       
         
 .recrut-header {
@@ -196,6 +205,11 @@
         .recrut-content {
         margin: 5px;
     display: none;
+    
+    
+    
+
+
     
     border-top: 1px solid rgb(220, 220, 255);
         }
@@ -260,9 +274,12 @@
             <div class="recrutementpays" id="RecrutementPays">
 
     <form id="recrutementForm">
+    <h3>info pour pouvoir te contacter</h3><br>
     <input name="pseudo" placeholder="Pseudo Minecraft" required><br>
+<br>
     <input name="pseudods" placeholder="Pseudo Discord" required><br><br>
-    <select name="style" required>
+    <h3>info sur ton jeu</h3>
+<select name="style" required>
         <option value="">style de jeu</option>
         <option>builder</option>
         <option>pvp</option>
@@ -277,8 +294,9 @@
         <option>Vétéran</option>
     </select><br><br>
 
+<h3>info pour le pays</h3>
     <textarea name="motivation" placeholder="Pourquoi veux-tu rejoindre le pays ?" required></textarea><br><br>
-    <textarea name="age" placeholder="quel age as tu  ?"></textarea><br><br>
+    <textarea name="age" placeholder="quel age as tu  ? non obligatoire"></textarea><br><br>
 
     <button type="submit" class="joinbtn">Envoyer</button>
 </form>
