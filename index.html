@@ -476,15 +476,49 @@ document.getElementById("recrutementForm").addEventListener("submit", function(e
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            content:
-                "**📜 Nouvelle candidature pour le pays !**\n" +
-                "**Pseudo minecraft :** " + pseudo + "\n" +
-                "**Pseudo discord :** " + pseudods + "\n" +
-                "**Niveau :** " + niveau + "\n\n" +
-                "**style :** " + style + "\n" +
-                "**Age :** " + age + "\n" +
-                "**Motivation :**\n" + motivation
-        })
+    embeds: [{
+        title: "📜 Nouvelle candidature – Diversalya",
+        color: 0x1d4ed8, // bleu (hex sans #)
+        fields: [
+            {
+                name: "👤 Pseudo minecraft",
+                value: pseudo,
+                inline: true
+            },
+            {
+                name: "👤 Pseudo discord",
+                value: pseudods,
+                inline: true
+            },
+            {
+                name: "Age",
+                value: age,
+                inline: true
+            },
+            {
+                name: "Style de jeu",
+                value: stylep,
+                inline: true
+            },
+            {
+                name: "🎮 Niveau",
+                value: niveau,
+                inline: true
+            },
+            {
+                name: "💬 Motivation",
+                value: motivation || "Non précisée",
+                inline: false
+            }
+        ],
+        footer: {
+            text: "Formulaire du site Diversalya"
+        },
+        timestamp: new Date().toISOString()
+    }]
+})
+
+        
     }).then(() => {
         alert("Candidature envoyée !");
         this.reset();
@@ -501,6 +535,7 @@ document.getElementById("recrutementForm").addEventListener("submit", function(e
 
 
 </html>
+
 
 
 
