@@ -159,9 +159,11 @@
    
         .quete-header:hover {
     background-color: rgb(230, 230, 255);
+    
 }
 
         .quete-content {
+        
     display: none;
     padding: 12px;
     border-top: 1px solid rgb(220, 220, 255);
@@ -176,26 +178,28 @@
     border: 1px solid rgb(200, 200, 255);
     border-radius: 10px;
     margin-bottom: 10px;
-    overflow: hidden;
-        }
+    width: fit-content;
+        }       
+        
 .recrut-header {
-    padding: 12px;
-    cursor: pointer;
-    font-weight: 600;
-    background-color: rgb(245, 245, 255);
-    transition: background-color 0.3s;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(0, 28, 189);
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
         }
-   
-        .recrut-header:hover {
-    background-color: rgb(230, 230, 255);
+   .recrut-header:hover {
+    background-color: rgb(41, 73, 255);
 }
 
         .recrut-content {
+        margin: 5px;
     display: none;
-    padding: 12px;
+    
     border-top: 1px solid rgb(220, 220, 255);
         }
-       .recrut.open .recrur-content {
+       .recrut.open .recrut-content {
     display: block;
         }
     </style>
@@ -573,7 +577,6 @@ document.getElementById("recrutementForm").addEventListener("submit", function(e
 
 
 </html>
-
 
 
 
