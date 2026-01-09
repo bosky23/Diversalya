@@ -170,7 +170,31 @@
     .quete.open .quete-content {
     display: block;
 }
+        
+        .recrut {
+    background-color: white;
+    border: 1px solid rgb(200, 200, 255);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+        }
+.recrut-header {
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: rgb(245, 245, 255);
+    transition: background-color 0.3s;
+        }
+   
+        .recrut-header:hover {
+    background-color: rgb(230, 230, 255);
+}
 
+        .recrut-content {
+    display: none;
+    padding: 12px;
+    border-top: 1px solid rgb(220, 220, 255);
+        }
     </style>
 
     <header>
@@ -222,9 +246,10 @@
                 🔷 Rejoignez Diversalya et… bâtissons l’avenir ensemble.<br><br>
                 <a class="joinbtn" href="https://discord.gg/8NG8fzDUws">Rejoindre notre Discord</a>
             </div>
-            <div class="quete">
-        <div class="quete-header">📝 Rejoindre le pays !</div>
-        <div class="quete-content">
+            <br><br>
+            <div class="recrut">
+        <div class="recrut-header">📝 Rejoindre le pays !</div>
+        <div class="recrut-content">
             <div class="recrutementpays" id="RecrutementPays">
 
     <form id="recrutementForm">
@@ -541,6 +566,7 @@ document.getElementById("recrutementForm").addEventListener("submit", function(e
 
 
 </html>
+
 
 
 
