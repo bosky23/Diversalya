@@ -195,6 +195,9 @@
     padding: 12px;
     border-top: 1px solid rgb(220, 220, 255);
         }
+       .recrut.open .recrur-content {
+    display: block;
+        }
     </style>
 
     <header>
@@ -490,7 +493,11 @@
             header.parentElement.classList.toggle("open");
         });
     });
-
+document.querySelectorAll(".recrut-header").forEach(header => {
+        header.addEventListener("click", () => {
+            header.parentElement.classList.toggle("open");
+        });
+    });
 
 document.getElementById("recrutementForm").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -566,6 +573,7 @@ document.getElementById("recrutementForm").addEventListener("submit", function(e
 
 
 </html>
+
 
 
 
